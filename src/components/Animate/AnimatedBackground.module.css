@@ -1,0 +1,121 @@
+
+
+.section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+	/* filter: brightness(1); */
+    background: radial-gradient(circle at 74.2% 50.9%, rgb(14, 72, 222) 5.2%, rgb(3, 22, 65) 75.3%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.section .row {
+    position: relative;
+    top: -80%;
+    width: 100%;
+    display: flex;
+    padding: 3px 0;
+    white-space: nowrap;
+    font-size: 44px;
+    transform: rotate(-30deg);
+}
+
+.i {
+    color: rgba(0, 0, 0, 0.5);
+    transition: 1s;
+    padding: 0 3px;
+    user-select: none;
+    cursor: default;
+}
+
+.i:hover {
+    transition: 0s;
+    color: #ff9900;
+    text-shadow: 0 0 50px #ff9900, 0 0 50px #00aaff; /* Orange and Blue glow */
+}
+
+section .row div {
+    animation: animate1 80s linear infinite;
+    animation-delay: -80s;
+}
+
+section .row div:nth-child(2) {
+    animation: animate2 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate1 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+section .row:nth-child(even) div {
+    animation: animate3 80s linear infinite;
+    animation-delay: -80s;
+}
+
+section .row:nth-child(even) div:nth-child(2) {
+    animation: animate4 80s linear infinite;
+    animation-delay: -40s;
+}
+
+@keyframes animate3 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes animate4 {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.row img {
+    margin: 10px;
+    transition: filter 1s; /* Adjust transition speed as needed */
+    filter: brightness(0); /* Display the image in black */
+    padding: 0 3px;
+    user-select: none;
+    cursor: default;
+    transform: scale(1); /* Default scale */
+}
+
+.row img:hover {
+    transition: 0s;
+    filter: brightness(1) drop-shadow(0 0 0.75rem #ff9900) drop-shadow(0 0 0.75rem #00aaff); /* Orange and Blue glow */
+    transform: scale(1.1); /* Slightly scale up image on hover for emphasis */
+}
+/* AnimatedBackground.module.css */
+.backgroundContainer {
+  position: fixed; /* Fixed positioning to cover the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;   /* Place it behind other content */
+  overflow: hidden; 
+}
+
+/* ... (rest of the animation CSS for .row, i, img, etc.) ... */

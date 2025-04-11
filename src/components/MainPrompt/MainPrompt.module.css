@@ -1,0 +1,672 @@
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #111111;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+section .row {
+  position: relative;
+  top: -80%;
+  width: 100%;
+  display: flex;
+  padding: 3px 0;
+  white-space: nowrap;
+  font-size: 44px;
+  transform: rotate(-30deg);
+}
+
+.i {
+  color: rgba(0, 0, 0, 0.5);
+  transition: 1s;
+  padding: 0 3px;
+  user-select: none;
+  cursor: default;
+}
+
+.i:hover {
+  transition: 0s;
+  color: #ff9900;
+  text-shadow: 0 0 50px #ff9900;
+}
+
+section .row div {
+  animation: animate1 80s linear infinite;
+  animation-delay: -80s;
+}
+
+section .row div:nth-child(2) {
+  animation: animate2 80s linear infinite;
+  animation-delay: -40s;
+}
+
+@keyframes animate1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-200%);
+  }
+}
+
+section .row:nth-child(even) div {
+  animation: animate3 80s linear infinite;
+  animation-delay: -80s;
+}
+
+section .row:nth-child(even) div:nth-child(2) {
+  animation: animate4 80s linear infinite;
+  animation-delay: -40s;
+}
+
+@keyframes animate3 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes animate4 {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+#backgroundContainer {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  padding: 80px 16px;
+  width: 100%;
+  z-index: 2;
+  max-height: 100vh;
+  background-size: 200% 200%;
+  backdrop-filter: blur(90px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInFromNone 1s ease-in-out, backgroundAnimation 10s ease infinite;
+  transition: all 1s;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  position: absolute;
+  opacity: 0.5;
+  animation: floatAnimation 10s linear infinite;
+  filter: drop-shadow(0 0 5px #00ff00);
+}
+
+@keyframes floatAnimation {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(5px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Fade-in animation */
+@keyframes fadeInFromNone {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Background color wave animation */
+@keyframes backgroundAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Wavy animation effect for a dynamic feel */
+@keyframes waveEffect {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Add wavy circles */
+.wavy-background {
+  position: absolute;
+  width: 200vw;
+  height: 200vh;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, #ffffff0d, transparent 50%);
+  opacity: 0.3;
+  animation: waveEffect 10s infinite ease-in-out;
+}
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: flex;
+    opacity: 0;
+  }
+  100% {
+    display: flex;
+    opacity: 1;
+  }
+}
+
+/* .logoContainer { */
+/* position: fixed; */
+/* top: 50%; */
+/* left: 50%; */
+/* transform: translate(-50%, -50%);  */
+/* z-index: 10;  */
+/* } */
+
+.title {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 40px;
+  margin-bottom: 12px;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ... (rest of your CSS code) */
+
+.textAreaContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; /* Add some space below the loaded file */
+}
+
+.textArea {
+  position: relative;
+  width: 60%; /* Slightly narrower */
+  resize: none;
+  overflow-y: hidden;
+   height: auto;
+  min-height: 45px;
+  max-height: 200px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #2b2b2b;
+  border: 1px solid #444444;
+  padding: 2px 37px; /* Reduced padding */
+  border-radius: 44px; /* Smaller rounded corners */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+.textArea:hover {
+  border-color: #666666;
+}
+
+.textArea:focus {
+  outline: none;
+  outline-color: transparent;
+  box-shadow: none !important;
+}
+
+/* Attach Button */
+.attachButton {
+  position: absolute;
+  left: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px; /* Smaller size */
+  width: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: transparent;
+  fill: white;
+}
+
+/* Send Button */
+.sendButton {
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px; /* Smaller size */
+  width: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #3a3a3a;
+  fill: white;
+}
+
+/* Button Hover Effects */
+.sendButton:hover, .attachButton:hover {
+  transition: all 0.4s;
+  background-color: #444444;
+  border: 2px solid #777777;
+}
+
+@media (max-width: 768px) {
+  
+
+  .attachButton, .sendButton {
+    height: 28px;
+    width: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  
+
+  .attachButton, .sendButton {
+    height: 24px;
+    width: 24px;
+  }
+}
+
+/* File Input (Hidden) */
+.fileInput {
+  display: none;
+}
+
+/* Thumbnail Preview */
+.thumbnailPreview {
+  position: absolute;
+  top: -60px; /* Adjust vertical position as needed */
+  left: 10px; /* Position from the left edge of the text area container */
+  padding: 0 80px; 
+}
+
+.thumbnailPreview img, 
+.thumbnailPreview .thumbnailIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query for Phone Screens */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  .thumbnailPreview {
+    top: -45px;   /* Adjust top position for smaller screens */
+    left: 50%;    /* Center horizontally on smaller screens */
+    transform: translateX(-50%);
+    padding: 0 20px; /* Reduce padding for smaller screens */
+  }
+
+  .thumbnailPreview img, 
+  .thumbnailPreview .thumbnailIcon {
+    width: 60px;   /* Reduce width for smaller screens */
+    height: 60px;  /* Reduce height for smaller screens */
+  }
+}
+
+/* ... (rest of your CSS code) */
+
+
+
+
+.textArea:hover {
+  border-color: #888888;
+}
+
+.textArea:focus {
+  outline: none;
+  outline-color: transparent;
+  box-shadow: none !important;
+}
+
+/* Attach and Send Button Styling */
+
+
+
+
+.sendButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  border-top-left-radius: 8px;    /* Top-left corner */
+    border-top-right-radius: 40px;   /* Top-right corner */
+    border-bottom-right-radius: 40px;/* Bottom-right corner */
+    border-bottom-left-radius: 8px; /* Bottom-left corner */
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #3a3a3a;
+ fill: white;
+  border-color: red;
+}
+
+.attachButton {
+  left: 20%; /* Adjust as needed */
+}
+
+.sendButton {
+  right: 21%; /* Adjust as needed */
+}
+
+
+.sendButton:hover {
+	transition: all 0.6s;
+ border-radius: 50%;
+  background-color: white;
+  border: 3px solid green;
+  fill: black;
+}
+
+/* Icon styles for buttons */
+.attachButton svg,
+.sendButton svg {
+  width: 80px;
+  height: 40px;
+  fill: white;
+}
+
+@media (max-width: 768px) {
+  .textArea {
+    width: 99%;
+    padding: 18px 40px;
+    min-height: 33px;
+  }
+
+  .attachButton {
+    left: 3%;
+	
+  }
+
+  .sendButton {
+    right: 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .textArea {
+    width: 100%;
+    padding: 16px 40px;
+    font-size: 14px;
+    min-height: 44px;
+  }
+
+  .attachButton {
+    left: 4%;
+  }
+
+  .sendButton {
+    right: 4%;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.7;
+  cursor: pointer;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.button:hover {
+  opacity: 1;
+  background-color: #161616aa;
+}
+
+.buttonText {
+  width: 100%;
+  font-size: 16px;
+  color: #ffffffaa;
+  background-color: transparent;
+}
+
+.sendButton {
+  width: 40px;
+}
+
+.button:hover .cross {
+  display: flex;
+}
+
+.cross {
+  display: none;
+  width: 18px;
+  height: 18px;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  scale: 0.75;
+}
+
+.popoverContainer {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #171717;
+  border: solid 1px #ffffff14;
+}
+
+.popover {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 4px;
+  column-gap: 4px;
+}
+
+.popoverBlock {
+  max-width: 200px;
+  padding: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: all 0.25s ease-in-out;
+}
+
+.popoverBlock:hover {
+  background-color: #ffffff14;
+  border-radius: 4px;
+}
+
+.popoverTitleContainer {
+  padding-left: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px;
+}
+
+.popoverText {
+  font-size: 16px;
+  color: #ffffff;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popoverSmallText {
+  width: 80%;
+  font-size: 12px;
+  color: #ffffffaa;
+  padding: 4px;
+  padding-top: 0px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modalBlock {
+  width: 100%;
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.modalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.modalTitleContainer {
+  padding-left: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0px;
+}
+
+.modalText {
+  font-size: 16px;
+  color: #ffffff;
+  padding: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modalSmallText {
+  width: 100%;
+  font-size: 14px;
+  color: #ffffffaa;
+  padding: 4px;
+  padding-top: 0px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.divider {
+  width: 90%;
+  height: 1px;
+  background-color: #ffffff14;
+}
+
+@media (max-width: 512px) {
+  .container {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 27px;
+    line-height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .promptContainer {
+    overflow: hidden;
+    min-width: 100%;
+    max-width: 512px;
+    margin-top: 24px;
+    border-radius: 8px;
+  }
+}
+
+/* Thumbnail Container Styling */
+.thumbnailContainer {
+  position: absolute;
+  bottom: 10px; /* Adjust vertical positioning as needed */
+  right: 100px; /* Adjust horizontal positioning as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Thumbnail Image Styling */
+.thumbnailContainer img {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* History Menu Styling */
+.historyMenu {
+  position: absolute;
+  top: 60px; /* Adjust vertical positioning as needed */
+  left: 10px; /* Adjust horizontal positioning as needed */
+  width: 200px;
+  background-color: #2b2b2b;
+  border: 1px solid #565656;
+  border-radius: 8px;
+  list-style: none;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.historyMenu li {
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.historyMenu li:hover {
+  background-color: #3a3a3a;
+}

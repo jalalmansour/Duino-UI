@@ -1,0 +1,191 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  min-width: 512px;
+  height: 60px;
+  max-height: 250px;
+  position: fixed;
+  background-color: #232323;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  bottom: 20px;
+  left: 50%;
+  border-radius: 16px;
+  z-index: 100;
+  transform: translateX(-50%);
+  animation: 500ms ease 200ms 1 normal forwards running footer;
+  transition: all 300ms ease;
+}
+.toolTipContainer {
+  position: absolute;
+  top: -42px;
+  border-radius: 6px;
+  padding: 4px 12px;
+  background-color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  animation: fadeInFromNone 1000ms ease-in-out;
+}
+.toolTipContainer::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: flex;
+    opacity: 0;
+  }
+  100% {
+    display: flex;
+    opacity: 1;
+  }
+}
+.promptContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 8px 16px;
+}
+.promptText {
+  width: 100%;
+  flex-grow: 1;
+  min-height: 36px;
+  max-height: 150px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: transparent;
+  border-width: 0px;
+  margin-right: 12px;
+  padding: 8px;
+  resize: none;
+  overflow-y: auto;
+  font-family: inherit;
+}
+.promptText::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.promptText:focus {
+  outline: none;
+  outline-color: transparent;
+  box-shadow: none !important;
+}
+.sendButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sendButton:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+.spinner {
+  width: 24px;
+  height: 24px;
+}
+.retryContainer, .forkContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 60px;
+  position: fixed;
+  background-color: #232323;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  bottom: 20px;
+  left: 50%;
+  border-radius: 16px;
+  z-index: 100;
+  transform: translateX(-50%);
+  animation: 500ms ease 200ms 1 normal forwards running footer;
+  transition: all 300ms ease;
+  cursor: pointer;
+  padding: 0 20px;
+}
+.retryContainer {
+  background-color: rgba(255, 65, 34, 0.15);
+  border: 1px solid rgba(255, 65, 34, 0.4);
+}
+.retryButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.stopButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #ff4629;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.attachButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #ffffff; /* Or any color you want */
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 8px; /* Add some spacing between buttons */
+}
+@keyframes footer {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .container, .retryContainer, .forkContainer {
+    width: 90%;
+    min-width: 90%;
+    border-radius: 16px;
+    bottom: 20px;
+  }
+}
+@media (max-width: 512px) {
+  .container, .retryContainer, .forkContainer {
+    width: 95%;
+    min-width: 95%;
+    border-radius: 16px;
+    bottom: 10px;
+  }
+}
